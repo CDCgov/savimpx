@@ -2,27 +2,26 @@
 #'
 #' @import ggplot2
 gddoc_map_theme <- function() {
-  theme_classic() +
+  theme_void() +
     theme(
-      # Default text size for all others not specified
-      text = element_text(size = 30),
       # Title, subtitle, caption
-      plot.title = element_text(size = 44, face = "bold"),
-      plot.subtitle = element_text(size = 38),
-      plot.caption = element_text(hjust = 0),
-      plot.caption.position = "panel",
-      # Panel grid and backing color
-      panel.grid.major = element_line(
-        color = gray(.5), linetype = "dashed", size = 0.5
-      ),
-      panel.background = element_rect(fill = "#b8cee5"),
+      plot.title = ggplot2::element_text(size = 15, face = "bold"),
+      plot.subtitle = ggplot2::element_text(size = 8, margin = margin(0, 0, 5, 0)),
+      plot.title.position = "panel",
+      plot.caption = ggplot2::element_text(size = 6, hjust = 0, vjust = 2),
+      plot.caption.position = "plot",
+
+      panel.background = element_rect(fill = "#b8cee5", color = "white"),
+      panel.border = element_blank(),
       # Legend
-      legend.background = element_rect(color = "black"),
-      legend.position = c(0.1, 0.25),
-      legend.text = element_text(size = 28),
-      legend.title = element_text(size = 30),
-      # Size of the fill boxes
-      legend.key.size = unit(2, "cm")
+      legend.position = c(0.01, 0.01),
+      legend.justification = c("left", "bottom"),
+      legend.box.just = "left",
+      legend.key.size = unit(0.5, "cm"),
+      legend.margin = ggplot2::margin(2, 2, 2, 2),
+      legend.title = ggplot2::element_text(size = 8),
+      legend.text = ggplot2::element_text(size = 6),
+      legend.background = element_rect(fill = scales::alpha("white", 0.5), colour = "black")
     )
 }
 
@@ -34,10 +33,11 @@ gddoc_map_theme <- function() {
 #' @return A styled choropleth map for use in various data products
 #'
 #' @import sf
+#' @export
 mpx_case_choro <- function(x, breaks = c(1, 2, 6, 20, 99), latest_date = Sys.Date()) {
   global_map %>%
     left_join(x, by = "iso3code") %>%
-    mutate(cases_bin = cut_pretty_labels(cases, breaks = case_breaks)) %>%
+    mutate(cases_bin = cut_pretty_labels(cases, cuts = breaks)) %>%
     ggplot() +
     geom_sf(fill = "white") +
     geom_sf(aes(fill = cases_bin)) +
