@@ -3,6 +3,7 @@
 #' @import httr
 #' @importFrom data.table fread
 #' @importFrom readxl read_xlsx read_xls
+#' @export
 spoConnection <- R6Class(
   classname = "spoConnection",
   public = list(
