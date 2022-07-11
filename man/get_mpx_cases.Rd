@@ -2,25 +2,17 @@
 % Please edit documentation in R/data_accessors.R
 \name{get_mpx_cases}
 \alias{get_mpx_cases}
-\alias{get_mpx_cases.spoConnection}
-\alias{get_mpx_cases.default}
 \title{Pull MPX Case Data}
 \usage{
-get_mpx_cases(.path, ...)
-
-\method{get_mpx_cases}{spoConnection}(.path, ...)
-
-\method{get_mpx_cases}{default}(.path, ...)
+get_mpx_cases(path, connection = NULL)
 }
 \arguments{
-\item{.path}{Either a spoConnection or character string path to MPX data}
+\item{path}{character string path to MPX data}
+
+\item{connection}{(optional) an \code{spoConnection} object}
 
 \item{...}{additional arguments handled by other methods (not yet implemented)}
 }
 \description{
 Pull MPX Case Data
-
-Pulling MPX data when an anonymous Sharepoint Connection is passed
-
-Pulling MPX data when passed a standard path
 }
