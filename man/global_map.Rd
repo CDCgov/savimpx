@@ -20,6 +20,6 @@ global_map
 A standard shapefile we use for mapping tasks
 }
 \details{
-DETAILS
+Liable to update, possibly (likely) incorrect spherical geometry.
 }
 \keyword{datasets}
