@@ -26,6 +26,7 @@ Imports:
     readxl,
     stringr,
     curl,
-    jsonlite
+    jsonlite,
+    AzureStor
 LazyData: true
 URL: https://cdcgov.github.io/savimpx/

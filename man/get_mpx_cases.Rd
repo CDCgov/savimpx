@@ -9,7 +9,7 @@ get_mpx_cases(path, connection = NULL)
 \arguments{
 \item{path}{character string path to MPX data}
 
-\item{connection}{(optional) an \code{spoConnection} object}
+\item{connection}{(optional) an \code{spoConnection} or \code{AzureStor::storage_container} object}
 }
 \value{
 A data frame with n rows and 4 variables:
@@ -21,5 +21,51 @@ A data frame with n rows and 4 variables:
 }
 }
 \description{
-Pull MPX Case Data
+This function provides a standardized interface to read in CDC Monkeypox line-list data
+from local path, Sharepoint/Teams, or Azure DataLake. The interface is liable to change
+as longer-term data storage changes.
+}
+\details{
+Note that this assumes that \code{path} links to a "wide" CSV
+where the first column is \code{Country}, and the following columns are
+dates. This is pivoted internally to "long", and ISO code inferred from
+Country column.
+}
+\examples{
+\dontrun{
+# Using local path (on your PC or from shared drive)
+path <- "<path_to_my_dir>/mpx_data.csv"
+
+get_mpx_cases(path)
+
+# From Sharepoint / MS Teams (remotely)
+# In this case, path should be relative to the Shared Documents folder
+spo_path <- "<My Sharepoint Folder>/mpx_data.csv"
+spo_con <- spoConnection$new(
+ tenant = "Tennant-Id",
+ client_id = Sys.getenv("CLIENT-ID"),
+ client_secret = Sys.getenv("CLIENT-SECRET"),
+ teams_name = "My-Team-Name"
+)
+
+get_mpx_cases(spo_path, connection = spo_con)
+
+# From Azure Data Lake
+ 
+azdl_path <- "<path_to_azdl_folder>/mpx_data.csv"
+
+ # Retrieve token using app registration
+ token <- AzureRMR::get_azure_token(
+  "https://storage.azure.com",
+  tenant = Sys.getenv("AZURE_TENANT_ID"),
+  app = Sys.getenv("AZURE_APP_ID"),
+  password = Sys.getenv("AZURE_APP_SECRET")
+)
+
+# We use the Blob URL, but DFS should work too
+azdl_con <- AzureStor::storage_container("https://<my_azdl_site>.blob.core.windows.net/<my_azdl_container>/", token = token)
+
+get_mpx_cases(azdl_path, connection = azdl_con)
+ 
+}
 }
