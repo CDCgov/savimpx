@@ -1,8 +1,11 @@
 #' @title An R6 Class to interface CDC Sharepoint sites
 #' @import R6
 #' @import httr
+#' @importFrom curl new_handle handle_setform curl_fetch_memory
+#' @importFrom jsonlite fromJSON
 #' @importFrom data.table fread
 #' @importFrom readxl read_xlsx read_xls
+#' @importFrom stringr str_interp
 #' @export
 spoConnection <- R6Class(
   classname = "spoConnection",
@@ -188,17 +191,17 @@ spoConnection <- R6Class(
     },
     # Acquire an access token to use the Sharepoint REST API v1
     acquire_token = function(tenant, clientId, clientSecret) {
-      h <- new_handle()
-      handle_setform(h,
+      h <- curl::new_handle()
+      curl::handle_setform(h,
         "grant_type" = "client_credentials",
         "client_id" = str_interp("${clientId}@${tenant}"),
         "client_secret" = clientSecret,
         "resource" = str_interp("00000003-0000-0ff1-ce00-000000000000/cdc.sharepoint.com@${tenant}")
       )
 
-      path <- str_interp("https://accounts.accesscontrol.windows.net/${tenant}/tokens/OAuth/2") # use V1 token endpoint.  V2 token endpoint does not work
-      req <- curl_fetch_memory(path, handle = h)
-      res <- fromJSON(rawToChar(req$content))
+      path <- stringr::str_interp("https://accounts.accesscontrol.windows.net/${tenant}/tokens/OAuth/2") # use V1 token endpoint.  V2 token endpoint does not work
+      req <- curl::curl_fetch_memory(path, handle = h)
+      res <- jsonlite::fromJSON(rawToChar(req$content))
 
       private$access_token <- paste("Bearer", res$access_token)
     }
