@@ -24,6 +24,8 @@ Imports:
     passport,
     readr,
     readxl,
-    stringr
+    stringr,
+    curl,
+    jsonlite
 LazyData: true
 URL: https://cdcgov.github.io/savimpx/
