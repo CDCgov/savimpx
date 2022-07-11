@@ -7,7 +7,7 @@
 #' @import dplyr
 #' @import tidyr
 #' @importFrom passport parse_country
-#' 
+#' @export
 get_mpx_cases <- function(path, connection = NULL) {
   raw_data <- fetch_mpx_cases(path, connection)
 
