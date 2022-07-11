@@ -157,11 +157,11 @@ spoConnection <- R6Class(
       )
     },
 
-    #'
-    #' Get Sharepoint's "Request Digest" security feature.  This method
-    #' sends a request to get the request digest for a given sharepoint
-    #' site, which needs to be used in subsequent \code{POST} requests.
-    #' This was inspired by the `spud` package.
+    #
+    # Get Sharepoint's "Request Digest" security feature.  This method
+    # sends a request to get the request digest for a given sharepoint
+    # site, which needs to be used in subsequent \code{POST} requests.
+    # This was inspired by the `spud` package.
     digest = function() {
       url <- sprintf("https://cdc.sharepoint.com/teams/%s/_api/contextinfo", private$site_name)
       r <- POST(
