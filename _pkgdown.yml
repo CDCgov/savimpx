@@ -1,0 +1,29 @@
+url: https://cdcgov.github.io/savimpx/
+template:
+  bootstrap: 5
+reference:
+- title: Data Pull functions
+- desc: Functions that assist with pulling and transforming MPX data
+- contents:
+  - get_mpx_cases
+
+- title: Visualizations
+- desc:  Functions that viz MPX data for internal and external products
+
+- subtitle: Maps
+- desc:  Maps, choropleths, and other geospatial viz
+- contents:
+  - mpx_case_choro
+
+
+- title: Data
+- desc: Internal Data documented
+- contents:
+  - global_map
+
+- title: Misc
+- desc: Helper functions, internal
+- contents:
+  - spoConnection
+  - chunk
+  - starts_with("cut_")
