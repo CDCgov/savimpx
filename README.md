@@ -1,5 +1,5 @@
-# SAVI Monkypox 
-[![R-CMD-check](https://github.com/beansrowning/savimpx/workflows/R-CMD-check/badge.svg)](https://github.com/beansrowning/savimpx/actions)
+# SAVI Monkeypox 
+[![R-CMD-check](https://github.com/CDCGov/savimpx/workflows/R-CMD-check/badge.svg)](https://github.com/CDCGov/savimpx/actions)
 
 ## About
 TODO
