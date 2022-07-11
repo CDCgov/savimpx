@@ -2,7 +2,14 @@
 #'
 #' @param path character string path to MPX data
 #' @param connection (optional) an `spoConnection` object
-#' @param ... additional arguments handled by other methods (not yet implemented)
+#' 
+#' @return A data frame with n rows and 4 variables: 
+#' \itemize{
+#'   \item{\code{Country}}{ character English name for administrative region}
+#'   \item{\code{date}}{ date reporting date}      
+#'   \item{\code{cases}}{ integer cumulative monkeypox cases}    
+#'   \item{\code{iso3code}}{ character ISO 3166-1 alpha-3 country code}
+#'}
 #' 
 #' @import dplyr
 #' @import tidyr

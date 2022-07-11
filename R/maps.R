@@ -1,6 +1,7 @@
 #' A sort-of standard map theme
 #'
 #' @import ggplot2
+#' @import scales
 gddoc_map_theme <- function() {
   theme_void() +
     theme(
