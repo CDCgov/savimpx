@@ -22,7 +22,6 @@ Imports:
     data.table,
     forcats,
     passport,
-    readr,
     readxl,
     stringr,
     curl,
