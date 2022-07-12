@@ -48,7 +48,7 @@ as longer-term data storage changes.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_mpx_cases</span><span class="op">(</span><span class="va">path</span>, connection <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_mpx_cases</span><span class="op">(</span><span class="va">path</span>, connection <span class="op">=</span> <span class="cn">NULL</span>, include_endemic <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -59,6 +59,10 @@ as longer-term data storage changes.</p>
 
 <dt>connection</dt>
 <dd><p>(optional) an <code>spoConnection</code> or <code><a href="https://rdrr.io/pkg/AzureStor/man/generics.html" class="external-link">AzureStor::storage_container</a></code> object</p></dd>
+
+
+<dt>include_endemic</dt>
+<dd><p>(boolean, default: <code>TRUE</code>) should data from MPX endemic countries be included?</p></dd>
 
 </dl></div>
     <div class="section level2">
