@@ -21,6 +21,7 @@ reference:
 - desc: Internal Data documented
 - contents:
   - global_map
+  - endemic_countries
 
 - title: Misc
 - desc: Helper functions, internal
