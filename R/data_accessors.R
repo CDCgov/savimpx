@@ -6,6 +6,7 @@
 #' 
 #' @param path character string path to MPX data
 #' @param connection (optional) an `spoConnection` or `AzureStor::storage_container` object
+#' @param include_endemic (boolean, default: `TRUE`) should data from MPX endemic countries be included?
 #' 
 #' @return A data frame with n rows and 4 variables: 
 #' \itemize{
@@ -64,7 +65,9 @@
 #' @importFrom passport parse_country
 #' @importFrom AzureStor storage_download
 #' @export
-get_mpx_cases <- function(path, connection = NULL) {
+get_mpx_cases <- function(path, connection = NULL, include_endemic = TRUE) {
+
+  # Pull data using whatever method required
   raw_data <- fetch_mpx_cases(path, connection)
 
   out <- raw_data %>%
@@ -73,6 +76,12 @@ get_mpx_cases <- function(path, connection = NULL) {
       iso3code = parse_country(Country, to = "iso3c"),
       date = as.Date(date, "%m/%d/%Y")
     )
+  
+  # Filter out endemic countries, if indicated
+  if (!include_endemic) {
+    out <- out %>%
+      filter(!iso3code %in% endemic_countries[["iso3code"]])
+  }
   
   return(out)
 }
