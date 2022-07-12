@@ -4,12 +4,14 @@
 \alias{get_mpx_cases}
 \title{Pull MPX Case Data}
 \usage{
-get_mpx_cases(path, connection = NULL)
+get_mpx_cases(path, connection = NULL, include_endemic = TRUE)
 }
 \arguments{
 \item{path}{character string path to MPX data}
 
 \item{connection}{(optional) an \code{spoConnection} or \code{AzureStor::storage_container} object}
+
+\item{include_endemic}{(boolean, default: \code{TRUE}) should data from MPX endemic countries be included?}
 }
 \value{
 A data frame with n rows and 4 variables:
