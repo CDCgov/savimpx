@@ -1,8 +1,8 @@
 pandoc: 2.14.2
-pkgdown: 2.0.5
+pkgdown: 2.0.6
 pkgdown_sha: ~
 articles: {}
-last_built: 2022-07-12T13:44Z
+last_built: 2022-07-27T18:12Z
 urls:
   reference: https://cdcgov.github.io/savimpx/reference
   article: https://cdcgov.github.io/savimpx/articles
