@@ -2,10 +2,13 @@
 
 export(get_mpx_cases)
 export(mpx_case_choro)
+export(mpx_table_cases)
+export(mpx_table_newcases)
 export(spoConnection)
 import(R6)
 import(dplyr)
 import(ggplot2)
+import(gt)
 import(httr)
 import(scales)
 import(sf)
