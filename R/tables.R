@@ -1,9 +1,10 @@
 #' Top 10 Table Summaries
-#'
+#' @param df A Monkeypox data.frame with at least `iso3code` and `cases` columns
+#' 
 #' @import gt
+#' @export
 
-mpx_table_cases <- function(){
-  df <- mpx_case_refresh(mpx_linelist_path, spo_con, include_endemic = FALSE)
+mpx_table_cases <- function(df){
   
   df_table <- df %>%
     group_by(Country) %>%
@@ -28,12 +29,12 @@ mpx_table_cases <- function(){
   
 
 #' Top 10 Table Summaries
-#' New cases calculated using "date_since"
-#' Enter "date_since" using date format YYYY-MM-DD
+#' @param df A Monkeypox data.frame with at least `iso3code` and `cases` columns
+#' @param date_since use date format YYYY-MM-DD
 #' 
-#' 
-  mpx_table_newcases <- function(date_since){
-    df <- mpx_case_refresh(mpx_linelist_path, spo_con, include_endemic = FALSE)
+#' @export
+
+  mpx_table_newcases <- function(df, date_since){
     
     df_table_newcases <- df %>%
       filter(date >= date_since) %>%
