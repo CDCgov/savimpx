@@ -16,6 +16,10 @@ reference:
   - mpx_case_choro
   - gddoc_map_theme
 
+- subtitle: Tables
+- desc:  Various {gt} styled tables for data products
+- contents:
+  - contains("table")
 
 - title: Data
 - desc: Internal Data documented
