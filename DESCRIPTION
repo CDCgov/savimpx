@@ -27,7 +27,8 @@ Imports:
     stringr,
     curl,
     jsonlite,
-    AzureStor
+    AzureStor,
+    gt
 LazyData: true
 URL: https://cdcgov.github.io/savimpx/
 Suggests: 
