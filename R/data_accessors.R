@@ -122,3 +122,61 @@ fetch_mpx_cases.default <- function(path, ...) {
 
   return(as_tibble(data_raw))
 }
+
+
+get_mpx_deaths <- function(path, connection = NULL, include_endemic = TRUE) {
+  
+  # Pull data using whatever method required
+  raw_data <- fetch_mpx_deaths(path, connection)
+  
+  out <- raw_data %>%
+    tidyr::pivot_longer(-Country, names_to = "date", values_to = "cases") %>%
+    mutate(date = convert_to_date(date, character_fun = ymd)) %>%
+    mutate(
+      iso3code = parse_country(Country, to = "iso3c"),
+      date = as.Date(date, "%m/%d/%Y")
+    )
+  
+  # Filter out endemic countries, if indicated
+  if (!include_endemic) {
+    out <- out %>%
+      filter(!iso3code %in% endemic_countries[["iso3code"]])
+  }
+  
+  return(out)
+}
+
+
+# Helper function to handle pulling line-list deaths data
+# (only used internally)
+fetch_mpx_deaths <- function(path, connection = NULL, ...) {
+  # Dispatch based on whether we need to pull from a sharepoint site
+  # or locally
+  UseMethod("fetch_mpx_deaths", connection)
+}
+
+
+# Pulling MPX data when an anonymous Sharepoint Connection is passed
+fetch_mpx_deaths.spoConnection <- function(path, connection, ...) {
+  data_raw <- connection$read_file(path)
+  
+  return(as_tibble(data_raw))
+}
+
+# Pulling MPX data when an AzureStor storage_container connection is passed
+fetch_mpx_deaths.storage_container <- function(path, connection, ...) {
+  tmp <- tempfile(fileext = ".csv")
+  
+  AzureStor::storage_download(connection, src=path, dest=tmp)
+  
+  data_raw <- data.table::fread(tmp)
+  
+  return(as_tibble(data_raw))
+}
+
+# Pulling MPX data when passed a standard path
+fetch_mpx_deaths.default <- function(path, ...) {
+  data_raw <- data.table::fread(path)
+  
+  return(as_tibble(data_raw))
+}
