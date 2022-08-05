@@ -75,7 +75,7 @@ get_mpx_cases <- function(path, connection = NULL, include_endemic = TRUE) {
     tidyr::pivot_longer(-Country, names_to = "date", values_to = "cases") %>%
     mutate(
       iso3code = parse_country(Country, to = "iso3c"),
-      date = janitor::convert_to_date(date, character_fun = ~as.Date(., "%m/%d/%Y"))
+      date = janitor::convert_to_date(date, character_fun = function(x) {as.Date(x, "%m/%d/%Y")})
     )
   
   # Filter out endemic countries, if indicated
