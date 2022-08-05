@@ -64,6 +64,7 @@
 #' @import tidyr
 #' @importFrom passport parse_country
 #' @importFrom AzureStor storage_download
+#' @importFrom janitor convert_to_date
 #' @export
 get_mpx_cases <- function(path, connection = NULL, include_endemic = TRUE) {
 
@@ -74,7 +75,7 @@ get_mpx_cases <- function(path, connection = NULL, include_endemic = TRUE) {
     tidyr::pivot_longer(-Country, names_to = "date", values_to = "cases") %>%
     mutate(
       iso3code = parse_country(Country, to = "iso3c"),
-      date = as.Date(date, "%m/%d/%Y")
+      date = janitor::convert_to_date(date, character_fun = ~as.Date(., "%m/%d/%Y"))
     )
   
   # Filter out endemic countries, if indicated
