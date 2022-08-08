@@ -123,6 +123,8 @@ fetch_mpx_cases.default <- function(path, ...) {
 
   return(as_tibble(data_raw))
 }
+#' @param path character string path to MPX data
+#' @param connection (optional) an `spoConnection` object
 
 #' @import dplyr
 #' @import tidyr
@@ -140,7 +142,7 @@ get_mpx_deaths <- function(path, connection = NULL, include_endemic = TRUE) {
     mutate(date = convert_to_date(date, character_fun = ymd)) %>%
     mutate(
       iso3code = parse_country(Country, to = "iso3c"),
-      date = as.Date(date, "%m/%d/%Y")
+      date = janitor::convert_to_date(date, character_fun = function(x) {as.Date(x, "%m/%d/%Y")})
     )
   
   # Filter out endemic countries, if indicated
