@@ -124,7 +124,12 @@ fetch_mpx_cases.default <- function(path, ...) {
   return(as_tibble(data_raw))
 }
 
-
+#' @import dplyr
+#' @import tidyr
+#' @importFrom passport parse_country
+#' @importFrom AzureStor storage_download
+#' @importFrom janitor convert_to_date
+#' @export
 get_mpx_deaths <- function(path, connection = NULL, include_endemic = TRUE) {
   
   # Pull data using whatever method required
