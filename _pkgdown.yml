@@ -6,6 +6,7 @@ reference:
 - desc: Functions that assist with pulling and transforming MPX data
 - contents:
   - get_mpx_cases
+  - get_mpx_deaths
 
 - title: Visualizations
 - desc:  Functions that viz MPX data for internal and external products
