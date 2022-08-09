@@ -33,5 +33,7 @@ Imports:
 LazyData: true
 URL: https://cdcgov.github.io/savimpx/
 Suggests: 
+    covr,
+    AzureRMR,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
