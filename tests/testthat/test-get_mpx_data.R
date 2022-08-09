@@ -33,6 +33,24 @@ test_that("Local File I/O works", {
   )
 })
 
+test_that("Local File I/O from Excel works", {
+  test_data_path <- file.path("20220712-mpx-test-data.xlsx")
+  # --- Cases ----------------------
+  cases <- get_mpx_cases(test_data_path)
+
+  expect_s3_class(cases, "data.frame")
+
+  # Column and row length
+  expect_true(nrow(cases) > 0L)
+  expect_true(ncol(cases) == 4)
+
+  # Column names and types
+  expect_mapequal(
+    vapply(cases, class, character(1)),
+    c(Country = "character", date = "Date", cases = "integer", iso3code = "character")
+  )
+})
+
 test_that("Endemic Countries are filtered correctly", {
   # Read in test data
   test_data_path <- file.path("20220712-mpx-test-data.csv")
