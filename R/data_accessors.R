@@ -17,7 +17,7 @@
 #'}
 #' 
 #' @details 
-#' Note that this assumes that `path` links to a "wide" CSV 
+#' Note that this assumes that `path` links to a "wide" Tabular dataset (CSV/TSV/Excel, currently)
 #' where the first column is `Country`, and the following columns are 
 #' dates. This is pivoted internally to "long", and ISO code inferred from
 #' Country column.
