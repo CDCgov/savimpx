@@ -72,7 +72,12 @@ get_mpx_cases <- function(path, connection = NULL, include_endemic = TRUE) {
   raw_data <- fetch_cdc_mpx_data(path, connection)
 
   out <- raw_data %>%
-    tidyr::pivot_longer(-Country, names_to = "date", values_to = "cases") %>%
+    tidyr::pivot_longer(
+      -Country,
+      names_to = "date",
+      values_to = "cases",
+      values_ptypes = integer()
+    ) %>%
     mutate(
       iso3code = parse_country(Country, to = "iso3c"),
       date = janitor::convert_to_date(date, character_fun = function(x) {as.Date(x, "%m/%d/%Y")})
@@ -101,7 +106,12 @@ get_mpx_deaths <- function(path, connection = NULL, include_endemic = TRUE) {
   raw_data <- fetch_cdc_mpx_data(path, connection)
   
   out <- raw_data %>%
-    tidyr::pivot_longer(-Country, names_to = "date", values_to = "cases") %>%
+    tidyr::pivot_longer(
+      -Country,
+      names_to = "date",
+      values_to = "deaths",
+      values_ptypes = integer()
+    ) %>%
     mutate(
       iso3code = parse_country(Country, to = "iso3c"),
       date = janitor::convert_to_date(date, character_fun = function(x) {as.Date(x, "%m/%d/%Y")})
