@@ -24,7 +24,7 @@ Imports:
     data.table,
     forcats,
     janitor,
-    passport,
+    countrycode,
     readxl,
     stringr,
     curl,
