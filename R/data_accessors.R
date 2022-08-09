@@ -156,7 +156,8 @@ fetch_cdc_mpx_data.storage_container <- function(path, connection, ...) {
 
 # Pulling MPX data when passed a standard path
 fetch_cdc_mpx_data.default <- function(path, ...) {
-  data_raw <- data.table::fread(path)
+  read_fn <- get_read_fn(path)
+  data_raw <- read_fn(path)
   
   return(as_tibble(data_raw))
 }
