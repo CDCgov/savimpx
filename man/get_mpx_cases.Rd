@@ -2,9 +2,12 @@
 % Please edit documentation in R/data_accessors.R
 \name{get_mpx_cases}
 \alias{get_mpx_cases}
-\title{Pull MPX Case Data}
+\alias{get_mpx_deaths}
+\title{Pull MPX Case and Death Data}
 \usage{
 get_mpx_cases(path, connection = NULL, include_endemic = TRUE)
+
+get_mpx_deaths(path, connection = NULL, include_endemic = TRUE)
 }
 \arguments{
 \item{path}{character string path to MPX data}
