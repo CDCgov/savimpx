@@ -1,4 +1,4 @@
-#' @title Pull MPX Case Data
+#' @title Pull MPX Case and Death Data
 #' @description 
 #' This function provides a standardized interface to read in CDC Monkeypox line-list data 
 #' from local path, Sharepoint/Teams, or Azure DataLake. The interface is liable to change
@@ -69,11 +69,10 @@
 get_mpx_cases <- function(path, connection = NULL, include_endemic = TRUE) {
 
   # Pull data using whatever method required
-  raw_data <- fetch_mpx_cases(path, connection)
+  raw_data <- fetch_cdc_mpx_data(path, connection)
 
   out <- raw_data %>%
     tidyr::pivot_longer(-Country, names_to = "date", values_to = "cases") %>%
-    mutate(date = convert_to_date(date, character_fun = ymd)) %>%
     mutate(
       iso3code = parse_country(Country, to = "iso3c"),
       date = janitor::convert_to_date(date, character_fun = function(x) {as.Date(x, "%m/%d/%Y")})
@@ -88,58 +87,21 @@ get_mpx_cases <- function(path, connection = NULL, include_endemic = TRUE) {
   return(out)
 }
 
-
-
-# Helper function to handle pulling line-list data
-# (only used internally)
-fetch_mpx_cases <- function(path, connection = NULL, ...) {
-  # Dispatch based on whether we need to pull from a sharepoint site
-  # or locally
-  UseMethod("fetch_mpx_cases", connection)
-}
-
-
-# Pulling MPX data when an anonymous Sharepoint Connection is passed
-fetch_mpx_cases.spoConnection <- function(path, connection, ...) {
-  data_raw <- connection$read_file(path)
-
-  return(as_tibble(data_raw))
-}
-
-# Pulling MPX data when an AzureStor storage_container connection is passed
-fetch_mpx_cases.storage_container <- function(path, connection, ...) {
-  tmp <- tempfile(fileext = ".csv")
-  
-  AzureStor::storage_download(connection, src=path, dest=tmp)
-  
-  data_raw <- data.table::fread(tmp)
-
-  return(as_tibble(data_raw))
-}
-
-# Pulling MPX data when passed a standard path
-fetch_mpx_cases.default <- function(path, ...) {
-  data_raw <- data.table::fread(path)
-
-  return(as_tibble(data_raw))
-}
-#' @param path character string path to MPX data
-#' @param connection (optional) an `spoConnection` object
 
 #' @import dplyr
 #' @import tidyr
 #' @importFrom passport parse_country
 #' @importFrom AzureStor storage_download
 #' @importFrom janitor convert_to_date
+#' @rdname get_mpx_cases
 #' @export
 get_mpx_deaths <- function(path, connection = NULL, include_endemic = TRUE) {
   
   # Pull data using whatever method required
-  raw_data <- fetch_mpx_deaths(path, connection)
+  raw_data <- fetch_cdc_mpx_data(path, connection)
   
   out <- raw_data %>%
     tidyr::pivot_longer(-Country, names_to = "date", values_to = "cases") %>%
-    mutate(date = convert_to_date(date, character_fun = ymd)) %>%
     mutate(
       iso3code = parse_country(Country, to = "iso3c"),
       date = janitor::convert_to_date(date, character_fun = function(x) {as.Date(x, "%m/%d/%Y")})
@@ -155,24 +117,24 @@ get_mpx_deaths <- function(path, connection = NULL, include_endemic = TRUE) {
 }
 
 
-# Helper function to handle pulling line-list deaths data
+# Helper function to handle pulling line-list data
 # (only used internally)
-fetch_mpx_deaths <- function(path, connection = NULL, ...) {
+fetch_cdc_mpx_data <- function(path, connection = NULL, ...) {
   # Dispatch based on whether we need to pull from a sharepoint site
   # or locally
-  UseMethod("fetch_mpx_deaths", connection)
+  UseMethod("fetch_cdc_mpx_data", connection)
 }
 
 
 # Pulling MPX data when an anonymous Sharepoint Connection is passed
-fetch_mpx_deaths.spoConnection <- function(path, connection, ...) {
+fetch_cdc_mpx_data.spoConnection <- function(path, connection, ...) {
   data_raw <- connection$read_file(path)
   
   return(as_tibble(data_raw))
 }
 
 # Pulling MPX data when an AzureStor storage_container connection is passed
-fetch_mpx_deaths.storage_container <- function(path, connection, ...) {
+fetch_cdc_mpx_data.storage_container <- function(path, connection, ...) {
   tmp <- tempfile(fileext = ".csv")
   
   AzureStor::storage_download(connection, src=path, dest=tmp)
@@ -183,7 +145,7 @@ fetch_mpx_deaths.storage_container <- function(path, connection, ...) {
 }
 
 # Pulling MPX data when passed a standard path
-fetch_mpx_deaths.default <- function(path, ...) {
+fetch_cdc_mpx_data.default <- function(path, ...) {
   data_raw <- data.table::fread(path)
   
   return(as_tibble(data_raw))
