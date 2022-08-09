@@ -59,3 +59,18 @@ cut_relabel <- function(str, fmt = "%s - %s", last_val_plus = FALSE) {
 
   return(out)
 }
+
+# A helper function to return a reading function based on file extension
+# (or return error)
+get_read_fn <- function(file) {
+  ext <- tolower(tools::file_ext(file))
+  fn <- switch(ext,
+    csv = data.table::fread,
+    tsv = data.table::fread,
+    xlsx = readxl::read_xlsx,
+    xls = readxl::read_xls,
+    stop(sprintf("No read function available for extension %s", ext))
+  )
+
+  return(fn)
+}

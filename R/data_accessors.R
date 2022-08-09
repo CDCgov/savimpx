@@ -17,7 +17,7 @@
 #'}
 #' 
 #' @details 
-#' Note that this assumes that `path` links to a "wide" CSV 
+#' Note that this assumes that `path` links to a "wide" Tabular dataset (CSV/TSV/Excel, currently)
 #' where the first column is `Country`, and the following columns are 
 #' dates. This is pivoted internally to "long", and ISO code inferred from
 #' Country column.
@@ -145,18 +145,20 @@ fetch_cdc_mpx_data.spoConnection <- function(path, connection, ...) {
 
 # Pulling MPX data when an AzureStor storage_container connection is passed
 fetch_cdc_mpx_data.storage_container <- function(path, connection, ...) {
-  tmp <- tempfile(fileext = ".csv")
+  tmp <- tempfile(fileext = paste0(".", tools::file_ext(path)))
   
   AzureStor::storage_download(connection, src=path, dest=tmp)
   
-  data_raw <- data.table::fread(tmp)
+  read_fn <- get_read_fn(tmp)
+  data_raw <- read_fn(tmp)
   
   return(as_tibble(data_raw))
 }
 
 # Pulling MPX data when passed a standard path
 fetch_cdc_mpx_data.default <- function(path, ...) {
-  data_raw <- data.table::fread(path)
+  read_fn <- get_read_fn(path)
+  data_raw <- read_fn(path)
   
   return(as_tibble(data_raw))
 }

@@ -40,7 +40,7 @@ spoConnection <- R6Class(
       )
 
       tmp_file <- tempfile(fileext = paste0(".", tools::file_ext(relative_url)))
-      read_fn <- private$reader_fns(relative_url)
+      read_fn <- get_read_fn(relative_url)
 
 
       req <- GET(
@@ -177,17 +177,6 @@ spoConnection <- R6Class(
       httr::stop_for_status(r)
       dat <- content(r, as = "parsed")
       return(dat$FormDigestValue)
-    },
-    reader_fns = function(file) {
-      ext <- tolower(tools::file_ext(file))
-      fn <- switch(ext,
-        csv = data.table::fread,
-        xlsx = readxl::read_xlsx,
-        xls = readxl::read_xls,
-        stop(sprintf("No read function available for extension %s", ext))
-      )
-
-      return(fn)
     },
     # Acquire an access token to use the Sharepoint REST API v1
     acquire_token = function(tenant, clientId, clientSecret) {
