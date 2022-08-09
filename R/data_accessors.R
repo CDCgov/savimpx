@@ -145,11 +145,12 @@ fetch_cdc_mpx_data.spoConnection <- function(path, connection, ...) {
 
 # Pulling MPX data when an AzureStor storage_container connection is passed
 fetch_cdc_mpx_data.storage_container <- function(path, connection, ...) {
-  tmp <- tempfile(fileext = ".csv")
+  tmp <- tempfile(fileext = paste0(".", tools::file_ext(path)))
   
   AzureStor::storage_download(connection, src=path, dest=tmp)
   
-  data_raw <- data.table::fread(tmp)
+  read_fn <- get_read_fn(tmp)
+  data_raw <- read_fn(tmp)
   
   return(as_tibble(data_raw))
 }
