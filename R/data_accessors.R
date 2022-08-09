@@ -62,7 +62,7 @@
 #' }
 #' @import dplyr
 #' @import tidyr
-#' @importFrom passport parse_country
+#' @importFrom countrycode countrycode
 #' @importFrom AzureStor storage_download
 #' @importFrom janitor convert_to_date
 #' @export
@@ -79,7 +79,7 @@ get_mpx_cases <- function(path, connection = NULL, include_endemic = TRUE) {
       values_ptypes = integer()
     ) %>%
     mutate(
-      iso3code = parse_country(Country, to = "iso3c"),
+      iso3code = unlist(countrycode(Country, origin = "country.name", destination = "iso3c", custom_match = manual_iso3_lk)),
       date = janitor::convert_to_date(date, character_fun = function(x) {as.Date(x, "%m/%d/%Y")})
     )
   
@@ -95,7 +95,7 @@ get_mpx_cases <- function(path, connection = NULL, include_endemic = TRUE) {
 
 #' @import dplyr
 #' @import tidyr
-#' @importFrom passport parse_country
+#' @importFrom countrycode countrycode
 #' @importFrom AzureStor storage_download
 #' @importFrom janitor convert_to_date
 #' @rdname get_mpx_cases
@@ -113,7 +113,7 @@ get_mpx_deaths <- function(path, connection = NULL, include_endemic = TRUE) {
       values_ptypes = integer()
     ) %>%
     mutate(
-      iso3code = parse_country(Country, to = "iso3c"),
+      iso3code = unlist(countrycode(Country, origin = "country.name", destination = "iso3c", custom_match = manual_iso3_lk)),
       date = janitor::convert_to_date(date, character_fun = function(x) {as.Date(x, "%m/%d/%Y")})
     )
   
