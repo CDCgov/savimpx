@@ -56,11 +56,11 @@ test_that("Endemic Countries are filtered correctly", {
 test_that("Sharepoint / MS Teams I/O works", {
   env_vars <- list(
     tenant = Sys.getenv("AZURE_TENANT_ID"),
-    client_id = Sys.getenv("ITF-SAVI-PROD-ID"),
-    client_secret = Sys.getenv("ITF-SAVI-PROD-SECRET"),
-    teams_name = Sys.getenv("ITF-SAVI-TEAMS-NAME"),
-    case_file_path = Sys.getenv("SPO-CASE-PATH"),
-    deaths_file_path = Sys.getenv("SPO-DEATH-PATH")
+    client_id = Sys.getenv("ITF_SAVI_PROD_ID"),
+    client_secret = Sys.getenv("ITF_SAVI_PROD_SECRET"),
+    teams_name = Sys.getenv("ITF_SAVI_TEAMS_NAME"),
+    case_file_path = Sys.getenv("SPO_CASE_PATH"),
+    deaths_file_path = Sys.getenv("SPO_DEATH_PATH")
   )
 
   # Skip if we don't have these assigned
@@ -69,9 +69,9 @@ test_that("Sharepoint / MS Teams I/O works", {
   # Test writeout path
   spo_con <- spoConnection$new(
     tenant = Sys.getenv("AZURE_TENANT_ID"),
-    client_id = Sys.getenv("ITF-SAVI-PROD-ID"),
-    client_secret = Sys.getenv("ITF-SAVI-PROD-SECRET"),
-    teams_name = Sys.getenv("ITF-SAVI-TEAMS-NAME")
+    client_id = Sys.getenv("ITF_SAVI_PROD_ID"),
+    client_secret = Sys.getenv("ITF_SAVI_PROD_SECRET"),
+    teams_name = Sys.getenv("ITF_SAVI_TEAMS_NAME")
   )
 
   # --- Cases ----------------------
@@ -110,9 +110,9 @@ test_that("Azure Data Lake I/O works", {
     tenant = Sys.getenv("AZURE_TENANT_ID"),
     client_id = Sys.getenv("AZURE_APP_ID"),
     client_secret = Sys.getenv("AZURE_APP_SECRET"),
-    case_file_path = Sys.getenv("AZDL-CASE-PATH"),
-    deaths_file_path = Sys.getenv("AZDL-DEATH-PATH"),
-    container = Sys.getenv("AZDL-CONTAINER")
+    case_file_path = Sys.getenv("AZDL_CASE_PATH"),
+    deaths_file_path = Sys.getenv("AZDL_DEATH_PATH"),
+    container = Sys.getenv("AZDL_CONTAINER")
   )
 
   # Skip if we don't have these assigned
@@ -132,7 +132,7 @@ test_that("Azure Data Lake I/O works", {
   azure_container <- AzureStor::storage_container(data_lake_path, token = azure_token)
 
   # --- Cases ----------------------
-  cases <- get_mpx_cases(Sys.getenv("AZDL-CASE-PATH"), connection = azure_container)
+  cases <- get_mpx_cases(Sys.getenv("AZDL_CASE_PATH"), connection = azure_container)
 
   expect_s3_class(cases, "data.frame")
 
@@ -147,7 +147,7 @@ test_that("Azure Data Lake I/O works", {
   )
 
   # --- Deaths --------------------------
-  deaths <- get_mpx_deaths(Sys.getenv("AZDL-DEATH-PATH"), connection = azure_container)
+  deaths <- get_mpx_deaths(Sys.getenv("AZDL_DEATH_PATH"), connection = azure_container)
 
   expect_s3_class(deaths, "data.frame")
 
