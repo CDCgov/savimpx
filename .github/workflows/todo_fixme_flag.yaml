@@ -1,0 +1,19 @@
+name: No TODO or FIXME on Master
+on:
+  pull_request:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Flag TODO or FIXME comments
+        run: |
+         if grep --exclude-dir={.git,.github} -rE "TODO|FIXME"; then
+              echo "Please either fix or remove comments!"
+              exit 1
+         else
+             echo "Pass 👍"
+             exit 0
+         fi
+         shell: bash
