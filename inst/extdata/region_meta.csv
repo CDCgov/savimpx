@@ -1,0 +1,238 @@
+iso2code,iso3code,who_country,state_region,who_region
+AW,ABW,Aruba,NA,AMRO
+AF,AFG,Afghanistan,South and Central Asia,EMRO
+AO,AGO,Angola,Sub-Saharan Africa,AFRO
+AI,AIA,Anguilla,NA,AMRO
+AL,ALB,Albania,Europe and Eurasia,EURO
+AD,AND,Andorra,Europe and Eurasia,EURO
+AE,ARE,United Arab Emirates,Near East (Middle East and Northern Africa),EMRO
+AR,ARG,Argentina,Western Hemisphere,AMRO
+AM,ARM,Armenia,Europe and Eurasia,EURO
+AS,ASM,American Samoa,NA,WPRO
+AG,ATG,Antigua and Barbuda,Western Hemisphere,AMRO
+AU,AUS,Australia,East Asia and the Pacific,WPRO
+AT,AUT,Austria,Europe and Eurasia,EURO
+AZ,AZE,Azerbaijan,Europe and Eurasia,EURO
+BI,BDI,Burundi,Sub-Saharan Africa,AFRO
+BE,BEL,Belgium,Europe and Eurasia,EURO
+BJ,BEN,Benin,Sub-Saharan Africa,AFRO
+BQ,BES,"Bonaire, Sint Eustatius, and Saba",NA,AMRO
+BF,BFA,Burkina Faso,Sub-Saharan Africa,AFRO
+BD,BGD,Bangladesh,South and Central Asia,SEARO
+BG,BGR,Bulgaria,Europe and Eurasia,EURO
+BH,BHR,Bahrain,Near East (Middle East and Northern Africa),EMRO
+BS,BHS,Bahamas,Western Hemisphere,AMRO
+BA,BIH,Bosnia and Herzegovina,Europe and Eurasia,EURO
+BL,BLM,Saint Barthélemy,NA,AMRO
+BY,BLR,Belarus,Europe and Eurasia,EURO
+BZ,BLZ,Belize,Western Hemisphere,AMRO
+BM,BMU,Bermuda,NA,AMRO
+BO,BOL,Bolivia,Western Hemisphere,AMRO
+BR,BRA,Brazil,Western Hemisphere,AMRO
+BB,BRB,Barbados,Western Hemisphere,AMRO
+BN,BRN,Brunei Darussalam,East Asia and the Pacific,WPRO
+BT,BTN,Bhutan,South and Central Asia,SEARO
+BW,BWA,Botswana,Sub-Saharan Africa,AFRO
+CF,CAF,Central African Republic,Sub-Saharan Africa,AFRO
+CA,CAN,Canada,Western Hemisphere,AMRO
+CH,CHE,Switzerland,Europe and Eurasia,EURO
+CL,CHL,Chile,Western Hemisphere,AMRO
+CN,CHN,China,East Asia and the Pacific,WPRO
+CI,CIV,Cote d'Ivoire,Sub-Saharan Africa,AFRO
+CM,CMR,Cameroon,Sub-Saharan Africa,AFRO
+CD,COD,Congo DR,Sub-Saharan Africa,AFRO
+CG,COG,Congo,Sub-Saharan Africa,AFRO
+CK,COK,Cook Islands,NA,WPRO
+CO,COL,Colombia,Western Hemisphere,AMRO
+KM,COM,Comoros,Sub-Saharan Africa,AFRO
+CV,CPV,Cabo Verde,Sub-Saharan Africa,AFRO
+CR,CRI,Costa Rica,Western Hemisphere,AMRO
+CU,CUB,Cuba,Western Hemisphere,AMRO
+CW,CUW,Curaçao,NA,AMRO
+KY,CYM,Cayman Islands,NA,AMRO
+CY,CYP,Cyprus,Europe and Eurasia,EURO
+CZ,CZE,Czechia,Europe and Eurasia,EURO
+DE,DEU,Germany,Europe and Eurasia,EURO
+DJ,DJI,Djibouti,Sub-Saharan Africa,EMRO
+DM,DMA,Dominica,Western Hemisphere,AMRO
+DK,DNK,Denmark,Europe and Eurasia,EURO
+DO,DOM,Dominican Republic,Western Hemisphere,AMRO
+DZ,DZA,Algeria,Near East (Middle East and Northern Africa),AFRO
+EC,ECU,Ecuador,Western Hemisphere,AMRO
+EG,EGY,Egypt,Near East (Middle East and Northern Africa),EMRO
+ER,ERI,Eritrea,Sub-Saharan Africa,AFRO
+ES,ESP,Spain,Europe and Eurasia,EURO
+EE,EST,Estonia,Europe and Eurasia,EURO
+ET,ETH,Ethiopia,Sub-Saharan Africa,AFRO
+FI,FIN,Finland,Europe and Eurasia,EURO
+FJ,FJI,Fiji,East Asia and the Pacific,WPRO
+FK,FLK,Falkland Islands,NA,AMRO
+FR,FRA,France,Europe and Eurasia,EURO
+FO,FRO,Faroe Islands,NA,EURO
+FM,FSM,Micronesia,East Asia and the Pacific,WPRO
+GA,GAB,Gabon,Sub-Saharan Africa,AFRO
+GB,GBR,United Kingdom,Europe and Eurasia,EURO
+GE,GEO,Georgia,Europe and Eurasia,EURO
+GG,GGY,Guernsey,NA,EURO
+GH,GHA,Ghana,Sub-Saharan Africa,AFRO
+GI,GIB,Gibraltar,NA,EURO
+GN,GIN,Guinea,Sub-Saharan Africa,AFRO
+GP,GLP,Guadeloupe,NA,AMRO
+GM,GMB,Gambia,Sub-Saharan Africa,AFRO
+GW,GNB,Guinea-Bissau,Sub-Saharan Africa,AFRO
+GQ,GNQ,Equatorial Guinea,Sub-Saharan Africa,AFRO
+GR,GRC,Greece,Europe and Eurasia,EURO
+GD,GRD,Grenada,Western Hemisphere,AMRO
+GL,GRL,Greenland,NA,EURO
+GT,GTM,Guatemala,Western Hemisphere,AMRO
+GF,GUF,French Guiana,NA,AMRO
+GU,GUM,Guam,NA,WPRO
+GY,GUY,Guyana,Western Hemisphere,AMRO
+HK,HKG,Hong Kong,NA,WPRO
+HN,HND,Honduras,Western Hemisphere,AMRO
+HR,HRV,Croatia,Europe and Eurasia,EURO
+HT,HTI,Haiti,Western Hemisphere,AMRO
+HU,HUN,Hungary,Europe and Eurasia,EURO
+ID,IDN,Indonesia,East Asia and the Pacific,SEARO
+IM,IMN,Isle of Man,NA,EURO
+IN,IND,India,South and Central Asia,SEARO
+IE,IRL,Ireland,Europe and Eurasia,EURO
+IR,IRN,Iran,Near East (Middle East and Northern Africa),EMRO
+IQ,IRQ,Iraq,Near East (Middle East and Northern Africa),EMRO
+IS,ISL,Iceland,Europe and Eurasia,EURO
+IL,ISR,Israel,Near East (Middle East and Northern Africa),EURO
+IT,ITA,Italy,Europe and Eurasia,EURO
+JM,JAM,Jamaica,Western Hemisphere,AMRO
+JE,JEY,Jersey,NA,EURO
+JO,JOR,Jordan,Near East (Middle East and Northern Africa),EMRO
+JP,JPN,Japan,East Asia and the Pacific,WPRO
+KZ,KAZ,Kazakhstan,South and Central Asia,EURO
+KE,KEN,Kenya,Sub-Saharan Africa,AFRO
+KG,KGZ,Kyrgyzstan,South and Central Asia,EURO
+KH,KHM,Cambodia,East Asia and the Pacific,WPRO
+KI,KIR,Kiribati,East Asia and the Pacific,WPRO
+KN,KNA,Saint Kitts and Nevis,Western Hemisphere,AMRO
+KR,KOR,Korea (South),East Asia and the Pacific,WPRO
+KW,KWT,Kuwait,Near East (Middle East and Northern Africa),EMRO
+LA,LAO,Laos,East Asia and the Pacific,WPRO
+LB,LBN,Lebanon,Near East (Middle East and Northern Africa),EMRO
+LR,LBR,Liberia,Sub-Saharan Africa,AFRO
+LY,LBY,Libya,Near East (Middle East and Northern Africa),EMRO
+LC,LCA,Saint Lucia,Western Hemisphere,AMRO
+LI,LIE,Liechtenstein,Europe and Eurasia,EURO
+LK,LKA,Sri Lanka,South and Central Asia,SEARO
+LS,LSO,Lesotho,Sub-Saharan Africa,AFRO
+LT,LTU,Lithuania,Europe and Eurasia,EURO
+LU,LUX,Luxembourg,Europe and Eurasia,EURO
+LV,LVA,Latvia,Europe and Eurasia,EURO
+MO,MAC,Macau,NA,WPRO
+MF,MAF,Saint Martin,NA,AMRO
+MA,MAR,Morocco,Near East (Middle East and Northern Africa),EMRO
+MC,MCO,Monaco,Europe and Eurasia,EURO
+MD,MDA,Moldova,Europe and Eurasia,EURO
+MG,MDG,Madagascar,Sub-Saharan Africa,AFRO
+MV,MDV,Maldives,South and Central Asia,SEARO
+MX,MEX,Mexico,Western Hemisphere,AMRO
+MH,MHL,Marshall Islands,East Asia and the Pacific,WPRO
+MK,MKD,North Macedonia,Europe and Eurasia,EURO
+ML,MLI,Mali,Sub-Saharan Africa,AFRO
+MT,MLT,Malta,Europe and Eurasia,EURO
+MM,MMR,Burma,East Asia and the Pacific,SEARO
+ME,MNE,Montenegro,Europe and Eurasia,EURO
+MN,MNG,Mongolia,East Asia and the Pacific,WPRO
+MP,MNP,Northern Mariana Islands,NA,WPRO
+MZ,MOZ,Mozambique,Sub-Saharan Africa,AFRO
+MR,MRT,Mauritania,Sub-Saharan Africa,AFRO
+MS,MSR,Montserrat,NA,AMRO
+MQ,MTQ,Martinique,NA,AMRO
+MU,MUS,Mauritius,Sub-Saharan Africa,AFRO
+MW,MWI,Malawi,Sub-Saharan Africa,AFRO
+MY,MYS,Malaysia,East Asia and the Pacific,WPRO
+YT,MYT,Mayotte,NA,AFRO
+"NA","NAM",Namibia,Sub-Saharan Africa,AFRO
+NC,NCL,New Caledonia,NA,WPRO
+NE,NER,Niger,Sub-Saharan Africa,AFRO
+NG,NGA,Nigeria,Sub-Saharan Africa,AFRO
+NI,NIC,Nicaragua,Western Hemisphere,AMRO
+NU,NIU,Niue,NA,WPRO
+NL,NLD,Netherlands,Europe and Eurasia,EURO
+NO,NOR,Norway,Europe and Eurasia,EURO
+NP,NPL,Nepal,South and Central Asia,SEARO
+NR,NRU,Nauru,East Asia and the Pacific,WPRO
+NZ,NZL,New Zealand,East Asia and the Pacific,WPRO
+OM,OMN,Oman,Near East (Middle East and Northern Africa),EMRO
+PK,PAK,Pakistan,South and Central Asia,EMRO
+PA,PAN,Panama,Western Hemisphere,AMRO
+PN,PCN,Pitcairn Islands,NA,WPRO
+PE,PER,Peru,Western Hemisphere,AMRO
+PH,PHL,Philippines,East Asia and the Pacific,WPRO
+PW,PLW,Palau,East Asia and the Pacific,WPRO
+PG,PNG,Papua New Guinea,East Asia and the Pacific,WPRO
+PL,POL,Poland,Europe and Eurasia,EURO
+PR,PRI,Puerto Rico,NA,AMRO
+KP,PRK,Korea (North),East Asia and the Pacific,SEARO
+PT,PRT,Portugal,Europe and Eurasia,EURO
+PY,PRY,Paraguay,Western Hemisphere,AMRO
+PS,PSE,Palestinian Territory,Near East (Middle East and Northern Africa),EMRO
+PF,PYF,French Polynesia,NA,WPRO
+QA,QAT,Qatar,Near East (Middle East and Northern Africa),EMRO
+RE,REU,Réunion,NA,AFRO
+RO,ROU,Romania,Europe and Eurasia,EURO
+RU,RUS,Russia,Europe and Eurasia,EURO
+RW,RWA,Rwanda,Sub-Saharan Africa,AFRO
+SA,SAU,Saudi Arabia,Near East (Middle East and Northern Africa),EMRO
+SD,SDN,Sudan,Sub-Saharan Africa,EMRO
+SN,SEN,Senegal,Sub-Saharan Africa,AFRO
+SG,SGP,Singapore,East Asia and the Pacific,WPRO
+SH,SHN,Saint Helena,NA,AFRO
+SB,SLB,Solomon Islands,East Asia and the Pacific,WPRO
+SL,SLE,Sierra Leone,Sub-Saharan Africa,AFRO
+SV,SLV,El Salvador,Western Hemisphere,AMRO
+SM,SMR,San Marino,Europe and Eurasia,EURO
+SO,SOM,Somalia,Sub-Saharan Africa,EMRO
+PM,SPM,Saint Pierre and Miquelon,NA,AMRO
+RS,SRB,Serbia,Europe and Eurasia,EURO
+SS,SSD,South Sudan,Sub-Saharan Africa,AFRO
+ST,STP,Sao Tome and Principe,Sub-Saharan Africa,AFRO
+SR,SUR,Suriname,Western Hemisphere,AMRO
+SK,SVK,Slovakia,Europe and Eurasia,EURO
+SI,SVN,Slovenia,Europe and Eurasia,EURO
+SE,SWE,Sweden,Europe and Eurasia,EURO
+SZ,SWZ,Eswatini,Sub-Saharan Africa,AFRO
+SX,SXM,Sint Maarten,NA,AMRO
+SC,SYC,Seychelles,Sub-Saharan Africa,AFRO
+SY,SYR,Syria,Near East (Middle East and Northern Africa),EMRO
+TC,TCA,Turks and Caicos Islands,NA,AMRO
+TD,TCD,Chad,Sub-Saharan Africa,AFRO
+TG,TGO,Togo,Sub-Saharan Africa,AFRO
+TH,THA,Thailand,East Asia and the Pacific,SEARO
+TJ,TJK,Tajikistan,South and Central Asia,EURO
+TK,TKL,Tokelau,NA,WPRO
+TM,TKM,Turkmenistan,South and Central Asia,EURO
+TL,TLS,Timor-Leste,East Asia and the Pacific,SEARO
+TO,TON,Tonga,East Asia and the Pacific,WPRO
+TT,TTO,Trinidad and Tobago,Western Hemisphere,AMRO
+TN,TUN,Tunisia,Near East (Middle East and Northern Africa),EMRO
+TR,TUR,Türkiye,Europe and Eurasia,EURO
+TV,TUV,Tuvalu,East Asia and the Pacific,WPRO
+TW,TWN,Taiwan,East Asia and the Pacific,WPRO
+TZ,TZA,Tanzania,Sub-Saharan Africa,AFRO
+UG,UGA,Uganda,Sub-Saharan Africa,AFRO
+UA,UKR,Ukraine,Europe and Eurasia,EURO
+UY,URY,Uruguay,Western Hemisphere,AMRO
+US,USA,United States of America,US,AMRO
+UZ,UZB,Uzbekistan,South and Central Asia,EURO
+VA,VAT,Holy See,Europe and Eurasia,EURO
+VC,VCT,Saint Vincent and the Grenadines,Western Hemisphere,AMRO
+VE,VEN,Venezuela,Western Hemisphere,AMRO
+VG,VGB,British Virgin Islands,NA,AMRO
+VI,VIR,"Virgin Islands, US",NA,AMRO
+VN,VNM,Viet Nam,East Asia and the Pacific,WPRO
+VU,VUT,Vanuatu,East Asia and the Pacific,WPRO
+WF,WLF,Wallis and Futuna,NA,WPRO
+WS,WSM,Samoa,East Asia and the Pacific,WPRO
+XK,XKX,Kosovo,NA,EURO
+YE,YEM,Yemen,Near East (Middle East and Northern Africa),EMRO
+ZA,ZAF,South Africa,Sub-Saharan Africa,AFRO
+ZM,ZMB,Zambia,Sub-Saharan Africa,AFRO
+ZW,ZWE,Zimbabwe,Sub-Saharan Africa,AFRO
