@@ -7,6 +7,7 @@ reference:
 - contents:
   - get_mpx_cases
   - get_mpx_deaths
+  - get_global_denoms
 
 - title: Visualizations
 - desc:  Functions that viz MPX data for internal and external products
@@ -27,6 +28,7 @@ reference:
 - contents:
   - global_map
   - endemic_countries
+  - global_denoms
 
 - title: Misc
 - desc: Helper functions, internal
