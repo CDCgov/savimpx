@@ -14,7 +14,7 @@ chunk <- function(x, n) split(x, cut(seq_along(x), n, labels = FALSE))
 #' @importFrom Hmisc cut2
 #' @importFrom forcats fct_relabel
 cut_pretty_labels <- function(x, fmt = "%s-%s", last_val_plus = FALSE, ...) {
-  binned_vals <- Hmisc::cut2(x, oneval = FALSE, ...)
+  binned_vals <- Hmisc::cut2(x, oneval = TRUE, ...)
 
   out <- forcats::fct_relabel(binned_vals, ~ cut_relabel(., fmt, last_val_plus))
 
@@ -55,7 +55,7 @@ cut_relabel <- function(str, fmt = "%s - %s", last_val_plus = FALSE) {
 
 
   # Pass thru NAs
-  out[is.na(split_str[, 1])] <- NA_character_
+  out[is.na(split_str[, 1])] <- "0"
 
   return(out)
 }

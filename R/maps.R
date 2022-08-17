@@ -35,14 +35,14 @@ gddoc_map_theme <- function() {
 #'
 #' @import sf
 #' @export
-mpx_case_choro <- function(x, breaks = c(1, 2, 6, 20, 99), latest_date = Sys.Date()) {
+mpx_case_choro <- function(x, breaks = c(0, 1, 51, 101, 501, 1001), latest_date = Sys.Date()) {
   global_map %>%
     left_join(x, by = "iso3code") %>%
+    mutate(cases = ifelse(is.na(cases) | cases == "NA", as.integer(0), cases)) %>%
     mutate(cases_bin = cut_pretty_labels(cases, cuts = breaks)) %>%
     ggplot() +
-    geom_sf(fill = "white") +
     geom_sf(aes(fill = cases_bin)) +
-    scale_fill_brewer(type = "seq", palette = "Oranges", na.translate = FALSE) +
+    scale_fill_manual(values = c("white", "#ffffb2", "#fecc5c", "#fd8d3c", "#f03b20", "#bd0026")) +
     labs(
       title = "Global Monkeypox Cases",
       subtitle = sprintf("Confirmed Cases in Non-endemic Countries \U2013 %s 5:00 PM EDT", format(latest_date, "%d %B %Y")),
