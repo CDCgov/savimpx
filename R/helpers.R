@@ -14,7 +14,7 @@ chunk <- function(x, n) split(x, cut(seq_along(x), n, labels = FALSE))
 #'
 #' @importFrom Hmisc cut2
 #' @importFrom forcats fct_relabel
-cut_pretty_labels <- function(x, fmt = "%s-%s", last_value_gte = TRUE, big_mark = ",", ...) {
+cut_pretty_labels <- function(x, fmt = "%s - %s", last_value_gte = TRUE, big_mark = ",", ...) {
   # If we ask for big mark, supply a function for number formatting with that big mark
   if (!is.null(big_mark)) {
     fmt_fun <- ~format(., big.mark=big_mark)
