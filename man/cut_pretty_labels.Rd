@@ -5,14 +5,22 @@
 \title{A thin wrapper around Hmisc::cut2 which
 relabels the output labels using a format string}
 \usage{
-cut_pretty_labels(x, fmt = "\%s-\%s", last_val_plus = FALSE, ...)
+cut_pretty_labels(
+  x,
+  fmt = "\%s-\%s",
+  last_value_gte = TRUE,
+  big_mark = ",",
+  ...
+)
 }
 \arguments{
 \item{x}{A numeric vector to bin using cut2}
 
 \item{fmt}{A string interpretable by sprintf formatting the breaks}
 
-\item{last_val_plus}{(default: FALSE) Should the final break be an interval or "{max(x)}+"}
+\item{last_value_gte}{(boolean, default: TRUE) If \code{TRUE}, will output last level with ">=number" notation}
+
+\item{big_mark}{(default: ,) A big mark separator for number formatting or NULL for none}
 
 \item{...}{additional parameters passed thru to cut2}
 }

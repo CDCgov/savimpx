@@ -5,14 +5,14 @@
 \title{Relabel bins from cut2 nicely for plotting
 NOTE: Assumes Hmisc::cut2(., oneval=FALSE)}
 \usage{
-cut_relabel(str, fmt = "\%s - \%s", last_val_plus = FALSE)
+cut_relabel(str, fmt = "\%s - \%s", big_mark = NULL, last_value_gte = FALSE)
 }
 \arguments{
 \item{str}{a character vector of labels from cut2 to re-label}
 
 \item{fmt}{a format string interpretable by sprintf to format the labels with}
 
-\item{last_val_plus}{(boolean) If \code{TRUE}, will output last level with "number+" notation}
+\item{last_value_gte}{(boolean) If \code{TRUE}, will output last level with ">=number" notation}
 }
 \description{
 Relabel bins from cut2 nicely for plotting

@@ -8,15 +8,23 @@ chunk <- function(x, n) split(x, cut(seq_along(x), n, labels = FALSE))
 #' relabels the output labels using a format string
 #' @param x A numeric vector to bin using cut2
 #' @param fmt A string interpretable by sprintf formatting the breaks
-#' @param last_val_plus (default: FALSE) Should the final break be an interval or "{max(x)}+"
+#' @param last_value_gte (boolean, default: TRUE) If `TRUE`, will output last level with ">=number" notation
+#' @param big_mark (default: ,) A big mark separator for number formatting or NULL for none
 #' @param ... additional parameters passed thru to cut2
 #'
 #' @importFrom Hmisc cut2
 #' @importFrom forcats fct_relabel
-cut_pretty_labels <- function(x, fmt = "%s-%s", last_val_plus = FALSE, ...) {
-  binned_vals <- Hmisc::cut2(x, oneval = TRUE, ...)
+cut_pretty_labels <- function(x, fmt = "%s-%s", last_value_gte = TRUE, big_mark = ",", ...) {
+  # If we ask for big mark, supply a function for number formatting with that big mark
+  if (!is.null(big_mark)) {
+    fmt_fun <- ~format(., big.mark=big_mark)
+  }
 
-  out <- forcats::fct_relabel(binned_vals, ~ cut_relabel(., fmt, last_val_plus))
+  # Bin our values with cut2
+  binned_vals <- Hmisc::cut2(x, oneval = TRUE, formatfun = fmt_fun, ...)
+
+  # Relabeling function for pretty formatting
+  out <- forcats::fct_relabel(binned_vals, ~ cut_relabel(., fmt, last_value_gte=last_value_gte, big_mark = big_mark))
 
   return(out)
 }
@@ -26,16 +34,16 @@ cut_pretty_labels <- function(x, fmt = "%s-%s", last_val_plus = FALSE, ...) {
 #'
 #' @param str a character vector of labels from cut2 to re-label
 #' @param fmt a format string interpretable by sprintf to format the labels with
-#' @param last_val_plus (boolean) If `TRUE`, will output last level with "number+" notation
+#' @param last_value_gte (boolean) If `TRUE`, will output last level with ">=number" notation
 #'
 #' @importFrom stringr str_match
-cut_relabel <- function(str, fmt = "%s - %s", last_val_plus = FALSE) {
-  split_str <- stringr::str_match(str, "\\[\\s*(\\d*)\\,\\s*(\\d*)[\\]\\)]")
+cut_relabel <- function(str, fmt = "%s - %s", big_mark = NULL, last_value_gte = FALSE) {
+  split_str <- stringr::str_match(str, "\\[\\s*(\\d+\\,*\\d*)\\,\\s*(\\d*\\,*\\d*)[\\]\\)]")
 
   # cut2 provides left-sided cuts, so we have to subtract one
   # from all the bins that have a ")"
   left_sided <- grepl("\\)", split_str[, 1])
-  split_str[left_sided, 3] <- as.character(as.integer(split_str[left_sided, 3]) - 1L)
+  split_str[left_sided, 3] <- format(as.integer(sub(big_mark, "", split_str[left_sided, 3], fixed=TRUE)) - 1L, big.mark = big_mark, trim = TRUE)
 
   # Paste back together using format string provided
   out <- sprintf(fmt, split_str[, 2], split_str[, 3])
@@ -45,17 +53,18 @@ cut_relabel <- function(str, fmt = "%s - %s", last_val_plus = FALSE) {
   out[single_val] <- split_str[single_val, 2]
 
   # Fix up the final value if indicated
-  if (last_val_plus) {
+  if (last_value_gte) {
     # Find max last value
-    max_val_str <- as.character(max(as.integer(split_str[, 2])))
+    max_val_str <- format(max(as.integer(sub(big_mark, "", split_str[, 2], fixed = TRUE)), na.rm = TRUE), big.mark = big_mark, trim = TRUE)
     which_max <- split_str[, 2] == max_val_str
 
-    out[which_max] <- paste0(max_val_str, "+")
+    out[which_max] <- paste0(">=", max_val_str)
   }
 
 
-  # Pass thru NAs
-  out[is.na(split_str[, 1])] <- "0"
+  # Ignore NAs (pass thru input value)
+  # HACK: Trim ws to avoid justified look
+  out[is.na(split_str[, 1])] <- trimws(str[is.na(split_str[, 1])])
 
   return(out)
 }
