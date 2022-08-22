@@ -48,7 +48,7 @@ NOTE: Assumes Hmisc::cut2(., oneval=FALSE)</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">cut_relabel</span><span class="op">(</span><span class="va">str</span>, fmt <span class="op">=</span> <span class="st">"%s - %s"</span>, last_val_plus <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">cut_relabel</span><span class="op">(</span><span class="va">str</span>, fmt <span class="op">=</span> <span class="st">"%s - %s"</span>, big_mark <span class="op">=</span> <span class="cn">NULL</span>, last_value_gte <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -61,8 +61,8 @@ NOTE: Assumes Hmisc::cut2(., oneval=FALSE)</p>
 <dd><p>a format string interpretable by sprintf to format the labels with</p></dd>
 
 
-<dt>last_val_plus</dt>
-<dd><p>(boolean) If <code>TRUE</code>, will output last level with "number+" notation</p></dd>
+<dt>last_value_gte</dt>
+<dd><p>(boolean) If <code>TRUE</code>, will output last level with "&gt;=number" notation</p></dd>
 
 </dl></div>
 
