@@ -94,10 +94,16 @@ get_global_denoms <- function(vintage = 2021, country_metadata = NULL) {
   df_meta <- df_meta %>%
     mutate(who_region_desc = who_region_lk[who_region])
 
+  # === Add Endemic column ===================================================
+  df_meta <- df_meta %>%
+    left_join(distinct(endemic_countries, mpx_endemic = Endemic, iso3code), by = "iso3code") %>%
+    mutate(mpx_endemic = if_else(mpx_endemic == "Y", TRUE, FALSE, FALSE))
+
+
   df_meta <- df_meta %>%
     select(
       iso3code, iso2code, state_region, who_region, who_region_desc,
-      who_country, incomelevel_value, population = total, eighteenplus = `18+`
+      who_country, mpx_endemic, incomelevel_value, population = total, eighteenplus = `18+`
     ) %>%
     arrange(iso3code) %>%
     as_tibble()
