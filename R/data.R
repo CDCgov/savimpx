@@ -20,6 +20,7 @@
 #'   \item{\code{who_region}}{character WHO Region acronym}
 #'   \item{\code{who_region_desc}}{character WHO Region english name}
 #'   \item{\code{who_country}}{character WHO English country text name}
+#'   \item{\code{mpx_endemic}}{logical Whether Monkey Pox is endemic to the country}
 #'   \item{\code{incomelevel_value}}{character World Bank Income level}
 #'   \item{\code{population}}{double UN Total population estimates for 2020}
 #'   \item{\code{eighteenplus}}{double UN 18+ population estimates for 2020}
