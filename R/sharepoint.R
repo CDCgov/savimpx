@@ -17,11 +17,12 @@ spoConnection <- R6Class(
     #' @param client_id (character) A Client ID for the App Registration
     #' @param client_secret (character) A Client Secret for the App Registration
     #' @param teams_name (character) Either a MS Teams name or Sharepoint site name
-    #'
+    #' @param default_library (character, default: "Shared Documents") The document library to connect to
+    #' 
     #' @return A new `spoConnection` object
-    initialize = function(tenant, client_id, client_secret, teams_name) {
+    initialize = function(tenant, client_id, client_secret, teams_name, default_library = "Shared Documents") {
       private$acquire_token(tenant, client_id, client_secret)
-      private$configure_url(teams_name)
+      private$configure_url(teams_name, default_library)
       private$site_name <- teams_name
     },
     #' @description
@@ -150,9 +151,9 @@ spoConnection <- R6Class(
     url_root_path = "",
     docs_root_path = "",
     site_name = "",
-    configure_url = function(name) {
+    configure_url = function(name, document_library) {
       private$url_root_path <- sprintf("https://cdc.sharepoint.com/teams/%s/_api/web", name)
-      private$docs_root_path <- sprintf("/teams/%s/Shared%%20Documents/", name)
+      private$docs_root_path <- sprintf("/teams/%s/%s/", name, document_library)
       # Check that URL is valid
       HEAD(
         private$url_root_path,
