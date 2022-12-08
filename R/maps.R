@@ -28,7 +28,7 @@ gddoc_map_theme <- function() {
 
 #' @title Standard MPX Global Choropleth
 #'
-#' @param x A Monkey pox data.frame with at least `iso3code` and `cases` columns
+#' @param x An Mpox data.frame with at least `iso3code` and `cases` columns
 #' @param breaks A numeric vector containing breaks for the choropleth bins
 #' @param latest_date A date value for the subtitle, latest updated date (default: `Sys.Date()`)
 #' @return A styled choropleth map for use in various data products
@@ -44,9 +44,9 @@ mpx_case_choro <- function(x, breaks = c(0, 1, 51, 101, 501, 1001), latest_date 
     geom_sf(aes(fill = cases_bin)) +
     scale_fill_manual(values = c("white", "#ffffb2", "#fecc5c", "#fd8d3c", "#f03b20", "#bd0026")) +
     labs(
-      title = "Global Monkeypox Cases",
+      title = "Global Mpox Cases",
       subtitle = sprintf("Confirmed Cases \U2013 %s 5:00 PM EDT", format(latest_date, "%d %B %Y")),
-      fill = "Confirmed Monkeypox Cases"
+      fill = "Confirmed Mpox Cases"
     ) +
     gddoc_map_theme()
 }
