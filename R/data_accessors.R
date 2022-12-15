@@ -73,7 +73,6 @@ get_mpx_cases <- function(path, connection = NULL, include_endemic = TRUE) {
 
   out <- raw_data %>%
     mutate(
-      iso3code = unlist(countrycode(Country, origin = "country.name", destination = "iso3c", custom_match = manual_iso3_lk)),
       date = janitor::convert_to_date(date, character_fun = function(x) {as.Date(x, "%m/%d/%Y")})
     )
   
@@ -101,7 +100,6 @@ get_mpx_deaths <- function(path, connection = NULL, include_endemic = TRUE) {
   
   out <- raw_data %>%
     mutate(
-      iso3code = unlist(countrycode(Country, origin = "country.name", destination = "iso3c", custom_match = manual_iso3_lk)),
       date = janitor::convert_to_date(date, character_fun = function(x) {as.Date(x, "%m/%d/%Y")})
     )
   
