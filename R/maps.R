@@ -44,9 +44,9 @@ mpx_case_choro <- function(x, breaks = c(0, 1, 51, 101, 501, 1001), latest_date 
     geom_sf(aes(fill = cases_bin)) +
     scale_fill_manual(values = c("white", "#ffffb2", "#fecc5c", "#fd8d3c", "#f03b20", "#bd0026")) +
     labs(
-      title = "Global Monkeypox Cases",
+      title = "Global Mpox Cases",
       subtitle = sprintf("Confirmed Cases \U2013 %s 5:00 PM EDT", format(latest_date, "%d %B %Y")),
-      fill = "Confirmed Monkeypox Cases"
+      fill = "Confirmed Mpox Cases"
     ) +
     gddoc_map_theme()
 }
