@@ -28,7 +28,7 @@ gddoc_map_theme <- function() {
 
 #' @title Standard MPX Global Choropleth
 #'
-#' @param x A Monkey pox data.frame with at least `iso3code` and `cases` columns
+#' @param x An Mpox data.frame with at least `iso3code` and `cases` columns
 #' @param breaks A numeric vector containing breaks for the choropleth bins
 #' @param latest_date A date value for the subtitle, latest updated date (default: `Sys.Date()`)
 #' @return A styled choropleth map for use in various data products
