@@ -11,21 +11,27 @@ An R6 Class to interface CDC Sharepoint sites
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-spoConnection-new}{\code{spoConnection$new()}}
-\item \href{#method-spoConnection-read_file}{\code{spoConnection$read_file()}}
-\item \href{#method-spoConnection-list_files}{\code{spoConnection$list_files()}}
-\item \href{#method-spoConnection-get_list}{\code{spoConnection$get_list()}}
-\item \href{#method-spoConnection-write_file}{\code{spoConnection$write_file()}}
-\item \href{#method-spoConnection-clone}{\code{spoConnection$clone()}}
+\item \href{#method-new}{\code{spoConnection$new()}}
+\item \href{#method-read_file}{\code{spoConnection$read_file()}}
+\item \href{#method-list_files}{\code{spoConnection$list_files()}}
+\item \href{#method-get_list}{\code{spoConnection$get_list()}}
+\item \href{#method-write_file}{\code{spoConnection$write_file()}}
+\item \href{#method-clone}{\code{spoConnection$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-spoConnection-new"></a>}}
-\if{latex}{\out{\hypertarget{method-spoConnection-new}{}}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
 Create a new Sharepoint Site connection
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{spoConnection$new(tenant, client_id, client_secret, teams_name)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{spoConnection$new(
+  tenant,
+  client_id,
+  client_secret,
+  teams_name,
+  default_library = "Shared Documents"
+)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -38,6 +44,8 @@ Create a new Sharepoint Site connection
 \item{\code{client_secret}}{(character) A Client Secret for the App Registration}
 
 \item{\code{teams_name}}{(character) Either a MS Teams name or Sharepoint site name}
+
+\item{\code{default_library}}{(character, default: "Shared Documents") The document library to connect to}
 }
 \if{html}{\out{</div>}}
 }
@@ -46,8 +54,8 @@ A new \code{spoConnection} object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-spoConnection-read_file"></a>}}
-\if{latex}{\out{\hypertarget{method-spoConnection-read_file}{}}}
+\if{html}{\out{<a id="method-read_file"></a>}}
+\if{latex}{\out{\hypertarget{method-read_file}{}}}
 \subsection{Method \code{read_file()}}{
 Read in a file from Sharepoint Site
 \subsection{Usage}{
@@ -68,8 +76,8 @@ If Excel or CSV file, a data frame. All other types will return error
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-spoConnection-list_files"></a>}}
-\if{latex}{\out{\hypertarget{method-spoConnection-list_files}{}}}
+\if{html}{\out{<a id="method-list_files"></a>}}
+\if{latex}{\out{\hypertarget{method-list_files}{}}}
 \subsection{Method \code{list_files()}}{
 List files in a Teams / Sharepoint Folder
 \subsection{Usage}{
@@ -88,8 +96,8 @@ A character vector of files present in the folder
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-spoConnection-get_list"></a>}}
-\if{latex}{\out{\hypertarget{method-spoConnection-get_list}{}}}
+\if{html}{\out{<a id="method-get_list"></a>}}
+\if{latex}{\out{\hypertarget{method-get_list}{}}}
 \subsection{Method \code{get_list()}}{
 Pull a Sharepoint List from an MS Teams/Sharepoint Site
 \subsection{Usage}{
@@ -108,8 +116,8 @@ Possibly a data.frame of the sharepoint list
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-spoConnection-write_file"></a>}}
-\if{latex}{\out{\hypertarget{method-spoConnection-write_file}{}}}
+\if{html}{\out{<a id="method-write_file"></a>}}
+\if{latex}{\out{\hypertarget{method-write_file}{}}}
 \subsection{Method \code{write_file()}}{
 Write a local file to a MS Teams/Sharepoint Site
 \subsection{Usage}{
@@ -130,8 +138,8 @@ URL path linking to the newly created file
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-spoConnection-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-spoConnection-clone}{}}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{
