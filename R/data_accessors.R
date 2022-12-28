@@ -67,31 +67,7 @@ get_mpx_cases <- function(path, connection = NULL, include_endemic = TRUE) {
 
   # Pull data using whatever method required
   raw_data <- fetch_cdc_mpx_data(path, connection)
-  df <- raw_data %>%
-    rename(cases_cum = cases) %>%
-    arrange(iso3code, date) %>%
-    group_by(iso3code) %>%
-    mutate(cases_new = cases_cum - lag(cases_cum)) %>%
-    mutate(cases_new = if_else(is.na(cases_new), 0L, cases_new)) %>%
-    ungroup()
-  
-  df_date_first <- df %>%
-    filter(cases_cum > 0) %>%
-    group_by(iso3code) %>%
-    summarise(date = min(date)) %>%
-    ungroup() %>%
-    mutate(new_country = 1)
-  
-  df_date_last <- df %>%
-    filter(cases_new > 0) %>%
-    group_by(iso3code) %>%
-    summarise(date = max(date)) %>%
-    ungroup() %>%
-    mutate(last_update = 1)
-  
-  raw_data <- df %>%
-    left_join(df_date_first) %>%
-    left_join(df_date_last)
+
   # Filter out endemic countries, if indicated
   if (!include_endemic) {
     out <- raw_data %>%
@@ -115,31 +91,7 @@ get_mpx_deaths <- function(path, connection = NULL, include_endemic = TRUE) {
 
   # Pull data using whatever method required
   raw_data <- fetch_cdc_mpx_data(path, connection)
-  df <- raw_data %>%
-    rename(deaths_cum = deaths) %>%
-    arrange(iso3code, date) %>%
-    group_by(iso3code) %>%
-    mutate(deaths_new = deaths_cum - lag(deaths_cum)) %>%
-    mutate(deaths_new = if_else(is.na(deaths_new), 0L, deaths_new)) %>%
-    ungroup()
-  
-  df_date_first <- df %>%
-    filter(deaths_cum > 0) %>%
-    group_by(iso3code) %>%
-    summarise(date = min(date)) %>%
-    ungroup() %>%
-    mutate(new_country = 1)
-  
-  df_date_last <- df %>%
-    filter(deaths_new > 0) %>%
-    group_by(iso3code) %>%
-    summarise(date = max(date)) %>%
-    ungroup() %>%
-    mutate(last_update = 1)
-  
-  raw_data <- df %>%
-    left_join(df_date_first) %>%
-    left_join(df_date_last)
+
   # Filter out endemic countries, if indicated
   if (!include_endemic) {
     out <- out %>%
@@ -187,4 +139,3 @@ fetch_cdc_mpx_data.default <- function(path, ...) {
 
   return(as_tibble(data_raw))
 }
-
