@@ -1,0 +1,21 @@
+paho_region,country,iso3code
+North America,Canada,CAN
+North America,US,USA
+North America,Mexico,MEX
+North America,Puerto Rico,PRI
+Central America,Costa Rica,CRI
+Central America,Guatemala,GTM
+Central America,Nicaragua,NIC
+Central America,El Salvador,SLV
+Central America,Honduras,HND
+Central America,Panama,PAN
+South America,Argentina,ARG
+South America,Brazil,BRA
+South America,Colombia,COL
+South America,Paraguay,PRY
+South America,Uruguay,URY
+South America,Bolivia,BOL
+South America,Chile,CHL
+South America,Ecuador,ECU
+South America,Peru,PER
+South America,Venezuela,VEN
